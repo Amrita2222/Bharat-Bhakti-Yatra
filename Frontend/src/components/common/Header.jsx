@@ -15,6 +15,7 @@ const Header = () => {
 
   const auth = getAuth(FireBaseConfig);
 
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setFirebaseUser(user);
@@ -56,7 +57,7 @@ const Header = () => {
   const isAnyAuthenticated = isAuthenticated || !!firebaseUser;
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50 ">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/">
@@ -82,6 +83,7 @@ const Header = () => {
             <a href="#" className="text-gray-700 hover:text-orange-500 font-medium">Chatdhara</a>
             <a href="#" className="text-gray-700 hover:text-orange-500 font-medium">Astrology</a>
             <a href="#" className="text-gray-700 hover:text-orange-500 font-medium">Kundli</a>
+            <Link to="/blog" className="text-gray-700 hover:text-orange-500 font-medium">Blog</Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">

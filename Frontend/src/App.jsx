@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import BlogWrapper from "./components/blog/BlogWrapper";
 import Header from "./components/common/Header";
 import "./index.css";
 import { useAuthStore } from "./store/authStore";
@@ -14,6 +15,8 @@ import EmailVerificationPage from "./pages/auth/EmailVerificationPage";
 import { Routes, Route, Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import Layout from "./components/common/Layout";
+
 
 const App = () => {
   const { checkAuth } = useAuthStore();
@@ -27,14 +30,17 @@ const App = () => {
       <Header />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Userprofile />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/verify-email" element={<EmailVerificationPage />} />
-        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-        <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
-      </Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<BlogWrapper />} />
+            <Route path="/profile" element={<Userprofile />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/verify-email" element={<EmailVerificationPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
+          </Route>
+        </Routes>
       </AnimatePresence>
     </div>
   );
