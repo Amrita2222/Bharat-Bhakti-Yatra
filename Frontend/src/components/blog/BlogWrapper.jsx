@@ -1,15 +1,17 @@
 
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Search, Calendar, ArrowRight, Sparkles, TrendingUp } from "lucide-react";
+import { Search, Calendar, ArrowRight, Sparkles, TrendingUp, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const initialBlogs = [
   {
     id: 1,
-    title: "Join the Digital Yatra",
-    subtitle: "Unite in devotion and explore sacred traditions online",
-    image: "https://images.unsplash.com/photo-1572566788059-c1c3dfeb3412?auto=format&fit=crop&w=800&q=80",
+    title: "Amarnath Cave – Where Whispered Lord Shiva",
+    subtitle:
+      "Discover the eternal abode of Lord Shiva nestled in the snow-clad Himalayas. Each step toward Amarnath Cave is a journey through devotion, where silence speaks the language of faith and surrender.",
+    image:
+      "https://i0.wp.com/www.opindia.com/wp-content/uploads/2025/07/cave-dharamsaar-1.jpg?resize=696%2C398&ssl=1",
     date: "Oct 15, 2025",
     category: "Spiritual Journey",
     readTime: "5 min read",
@@ -18,9 +20,12 @@ const initialBlogs = [
   },
   {
     id: 2,
-    title: "Bhakti Through Music",
-    subtitle: "Discover devotional melodies that connect hearts",
-    image: "https://images.unsplash.com/photo-1509475826633-fed577a2c71b?auto=format&fit=crop&w=800&q=80",
+    title:
+      "Mata Vaishno Devi – Mother of Knowledge; Destroyer of The Demon of Lust",
+    subtitle:
+      "Mata Vaishno Devi is the divine embodiment of wisdom and strength, guiding devotees toward purity of thought and purpose. Her sacred abode in the Trikuta mountains radiates energy that transforms hearts with devotion.",
+    image:
+      "https://wpblogassets.paytm.com/travelblog/uploads/2024/10/Vaishno-Devi-Temple-scaled.jpg",
     date: "Oct 14, 2025",
     category: "Music & Arts",
     readTime: "7 min read",
@@ -30,8 +35,9 @@ const initialBlogs = [
   {
     id: 3,
     title: "Sacred Places Across India",
-    subtitle: "A digital exploration of our sacred geography",
-    image: "https://images.unsplash.com/photo-1554556073-d3f9605b8bdf?auto=format&fit=crop&w=800&q=80",
+    subtitle:
+      "India is a land where every corner breathes spirituality and divine stories. From Kashi to Rameshwaram, each sacred site connects us to the timeless spirit of devotion and cultural unity.",
+    image: "https://www.epicyatra.com/wp-content/uploads/2024/09/header.jpg",
     date: "Oct 13, 2025",
     category: "Travel",
     readTime: "6 min read",
@@ -40,9 +46,11 @@ const initialBlogs = [
   },
   {
     id: 4,
-    title: "Ancient Wisdom for Modern Life",
-    subtitle: "Timeless teachings that guide our daily existence",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
+    title: "Haridwar – Gateway To Hari (Vishnu) And Hara (Maheshwara)",
+    subtitle:
+      "Haridwar stands as the sacred confluence where faith meets the divine flow of the Ganga. Known as the gateway to the gods, this ancient city invites seekers to cleanse their soul and awaken their spiritual essence.",
+    image:
+      "https://propacity.com/blogs/wp-content/uploads/2024/05/ganga-Arti-1.jpg",
     date: "Oct 12, 2025",
     category: "Philosophy",
     readTime: "8 min read",
@@ -52,8 +60,9 @@ const initialBlogs = [
   {
     id: 5,
     title: "Festivals of Unity",
-    subtitle: "Celebrating diversity through sacred celebrations",
-    image: "https://images.unsplash.com/photo-1533561797500-4faa4e687c87?auto=format&fit=crop&w=800&q=80",
+    subtitle:
+      "India’s festivals are living symbols of togetherness, joy, and divine celebration. Whether it’s Diwali’s light or Holi’s colors, each festival unites hearts and reminds us of the oneness in diversity.",
+    image: "https://htoindia.com/wp-content/uploads/2025/02/India-Fastival.jpg",
     date: "Oct 11, 2025",
     category: "Festivals",
     readTime: "4 min read",
@@ -62,16 +71,58 @@ const initialBlogs = [
   },
   {
     id: 6,
-    title: "Meditation & Mindfulness",
-    subtitle: "Finding peace in the digital age through ancient practices",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+    title: "Kedarnath – The Holiest of The Holy Destination",
+    subtitle:
+      "Kedarnath, nestled amidst the mighty Himalayas, stands as a beacon of Lord Shiva’s grace and resilience. Its divine presence teaches us to endure life’s storms with faith, courage, and humility.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUpd1ksAJ_KGY22EHGz36egevlQNo6QDlmlw&s",
     date: "Oct 10, 2025",
     category: "Wellness",
     readTime: "6 min read",
     trending: false,
     gradient: "from-blue-500 to-cyan-500",
   },
+  {
+    id: 7,
+    title: "The Essence of Philosophy in Hindu Scriptures",
+    subtitle:
+      "Ancient Indian philosophy reveals the eternal truth of existence and self-realization. The teachings of the Vedas and Upanishads inspire seekers to look inward, discover peace, and embrace the divine unity of all beings.",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Raja_Ravi_Varma_-_Sankaracharya.jpg/220px-Raja_Ravi_Varma_-_Sankaracharya.jpg",
+    date: "Oct 9, 2025",
+    category: "Philosophy",
+    readTime: "7 min read",
+    trending: false,
+    gradient: "from-yellow-500 to-lime-500",
+  },
+  {
+    id: 8,
+    title: "Festival of Lights – Symbol of Hope and Renewal",
+    subtitle:
+      "Diwali, the festival of lights, celebrates the victory of good over evil and knowledge over ignorance. It reminds us that even the smallest lamp can dispel the deepest darkness when lit with faith and love.",
+    image:
+      "https://static.toiimg.com/thumb/msid-105129473,width-748,height-499,resizemode=4,imgsize-85732/.jpg",
+    date: "Oct 8, 2025",
+    category: "Festivals",
+    readTime: "5 min read",
+    trending: true,
+    gradient: "from-red-500 to-yellow-500",
+  },
+  {
+    id: 9,
+    title: "The Spiritual Wellness of Meditation",
+    subtitle:
+      "Meditation is the bridge that connects the restless mind with eternal peace. In every breath of awareness, we experience healing, balance, and the presence of the divine within us.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY7ftkVSe0BbGPqhoDL4EJ1N-ZfhOQDAvzbQ&s",
+    date: "Oct 7, 2025",
+    category: "Wellness",
+    readTime: "6 min read",
+    trending: false,
+    gradient: "from-green-500 to-emerald-500",
+  },
 ];
+
 
 export default function BlogSection() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -135,7 +186,7 @@ export default function BlogSection() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 
         ${selectedCategory === category
-                    ? "bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500 text-white shadow-md shadow-orange-400/30 scale-105"
+                    ? "bg-gradient-to-r from-orange-500 via-orange-500 to-rose-500 text-white shadow-md shadow-orange-400/30 scale-105"
                     : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-orange-400 hover:text-orange-600 dark:hover:border-orange-400"
                   }
       `}
@@ -148,7 +199,7 @@ export default function BlogSection() {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
           {filteredBlogs.map((blog, index) => (
             <Card
               key={blog.id}
@@ -159,9 +210,9 @@ export default function BlogSection() {
             >
               {/* Trending Badge */}
               {blog.trending && (
-                <div className="absolute top-4 right-4 z-20 flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white text-xs font-bold shadow-lg">
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-1 px-3 py-1.5 rounded-full bg-emerald-600 text-white text-xs font-bold shadow-lg">
                   <TrendingUp size={14} />
-                  <span>Trending</span>
+                  <span>Published</span>
                 </div>
               )}
 
@@ -189,23 +240,23 @@ export default function BlogSection() {
                   <div className="flex items-center gap-1">
                     <Calendar size={14} />
                     <span>{blog.date}</span>
-                  </div>
-                  <span>•</span>
+                  </div><Clock size={14}  />
+                 
                   <span>{blog.readTime}</span>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-pink-600 group-hover:bg-clip-text transition-all duration-300">
+                <h3 className="text-md font-bold text-gray-800 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-pink-600 group-hover:bg-clip-text transition-all duration-300">
                   {blog.title}
                 </h3>
 
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                <p className="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
                   {blog.subtitle}
                 </p>
 
                 {/* Read More Button */}
                 <Button
                   variant="ghost"
-                  className="group/btn p-0 h-auto font-semibold text-orange-600 dark:text-orange-400 hover:bg-transparent"
+                  className="group/btn p-0 h-auto border px-3 py-2 rounded-full border-slate-100 font-semibold text-orange-600 dark:text-orange-400 hover:bg-transparent"
                 >
                   <span className="flex items-center gap-2">
                     Read More
@@ -238,7 +289,7 @@ export default function BlogSection() {
         {/* Load More Section */}
         {filteredBlogs.length > 0 && (
           <div className="text-center mt-12">
-            <Button className="px-8 py-6 rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300">
+            <Button className="px-8 py-6 rounded-xl bg-gradient-to-r from-orange-500 to-orange-500 hover:from-orange-600 hover:to-orange-400 text-white font-semibold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300">
               Load More Stories
             </Button>
           </div>
